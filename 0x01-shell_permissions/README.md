@@ -6,3 +6,5 @@ file 4-empty creates an empty file hello
 file 5-execute gives execute permission to file 4-empty
 file 6-multiple_permission gives multiple permissions to the file hello
 file 7-everyone gives execution permission to everyone
+file 8-James_Bond grants others all permission
+file 9-John_Doe creates a chmod of 753
