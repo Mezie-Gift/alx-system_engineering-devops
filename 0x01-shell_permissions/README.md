@@ -8,3 +8,4 @@ file 6-multiple_permission gives multiple permissions to the file hello
 file 7-everyone gives execution permission to everyone
 file 8-James_Bond grants others all permission
 file 9-John_Doe creates a chmod of 753
+file 10-mirrow_permission (hello) mirrows/copies the permission of the file olleh
