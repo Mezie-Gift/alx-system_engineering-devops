@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# This script displays "Best School" 10 times
+#+ but diplays "bad luck" after the 3rd iteration
+#+ and displays"good luck" after the 7th iteration
+# AUTHOR: Mezie Gift
+
+string='Best School'
+i=0
+while [ $i -le 9 ]
+do
+   if [ $i -eq 3 ]
+   then
+      echo "bad luck"
+   elif [ $i -eq 7 ]
+   then
+      echo "good luck"
+   else
+      echo "$string"
+   fi
+   i=$(( i + 1 ))
+done
