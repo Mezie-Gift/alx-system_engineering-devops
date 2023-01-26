@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This script prints "Best school" 10 times
+# AUTHOR: Mezie Gift
+
+string='Best School'
+i=0
+until [ $i -gt 9 ]
+do
+   echo "$string"
+   ((i++))
+done
