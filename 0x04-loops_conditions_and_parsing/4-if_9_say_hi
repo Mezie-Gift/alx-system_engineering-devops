@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# This script displays "Best School" 10 times
+#+ but diplays "Hi" after the 9th iteration
+# AUTHOR: Mezie Gift
+
+string='Best School'
+i=0
+while [ $i -le 10 ]
+do
+   if [ $i -eq 9 ]
+   then
+      echo "Hi"
+   else
+      echo "$string"
+   fi
+   i=$(( i + 1 ))
+done
