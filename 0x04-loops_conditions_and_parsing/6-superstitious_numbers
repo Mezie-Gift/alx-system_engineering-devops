@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# This script counts from 1 t0 20,
+#+ but diplays "bad luck from China" after the
+#+ number 4, and "bad luck from Japan" after
+#+ the number 9, and "bad luck from Italy"
+#+ after number 17
+# AUTHOR: Mezie Gift
+
+i=1
+str1='bad luck from China'
+str2='bad luck from Japan'
+str3='bad luck from Italy'
+while [ $i -le 20 ]
+do
+   echo "$i"
+   case $i in
+       4)
+        echo "$str1"
+	 ;;
+       9)
+        echo "$str2"
+	 ;;
+       17)
+        echo "$str3"
+	 ;;
+      esac
+   i=$((i + 1))
+done
