@@ -11,9 +11,8 @@ do
     if (( num%3==0 && num%5==0 ))
     then
         echo "FizBuzz"
-    fi
 
-    if (( num%3==0 && num%5!=0 ))
+    elif (( num%3==0 && num%5!=0 ))
     then
         echo "Fizz"
     elif (( num%5==0 && num%3!=0 ))
