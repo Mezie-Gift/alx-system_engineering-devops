@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Displays The content of the current directory
+#+ in a list format.
+# Only the part of the name after the first 
+#+ dash is displayed.
+
+for contents in /alx-system_engineering_devops/0x04-loops_conditions_and_parsing;
+do
+   ls -1 | cut -d '-' -f2
+done
