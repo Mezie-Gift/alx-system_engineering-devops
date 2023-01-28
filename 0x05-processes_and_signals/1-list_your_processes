@@ -2,8 +2,4 @@
 # Script prints my own process
 # AUTHOR: Mezie Gift
 
-function proCheck ()
-{
 ps -u
-}
-proCheck
