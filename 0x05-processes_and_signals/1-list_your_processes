@@ -2,4 +2,4 @@
 # Script prints my own process
 # AUTHOR: Mezie Gift
 
-ps -u
+ps -uaxf
