@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Script prints out its own PID
+# AUTHOR: Mezie Gift
+
+echo "$$"
