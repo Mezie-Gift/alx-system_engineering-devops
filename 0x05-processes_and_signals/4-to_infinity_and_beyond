@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This script that displays To infinity and beyond indefinitely
+# AUTHOR: Mezie Gift
+
+str="To infinity and beyond"
+for (( ; ; ))
+do
+   echo "$str"
+sleep 2
+done
