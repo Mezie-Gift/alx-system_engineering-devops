@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This script prints To "infinity and beyond" indefinitely
+#+ With a sleep 2 in between each iteration
+# It prints i am invisible when recieving a SIGTERM signal
+
+for (( ; ;))
+do
+    echo "To infinity and beyond"
+    sleep 2
+    trap 'echo "I am invincible!!!"' SIGTERM
+done
