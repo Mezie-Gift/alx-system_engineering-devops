@@ -1,7 +1,6 @@
 # This manifest kills a process called `Killmenow`
 
-$procx_name = 'Killmenow'
-exec {"kill_${procx_name}":
-  command => "/usr/bin/pkill ${procx_name}",
+exec {'pkill':
+  command => 'pkill -9 -f killmenow',
   path    => ['/usr/bin', '/usr/sbin', '/bin']
 }
