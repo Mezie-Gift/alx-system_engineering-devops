@@ -11,7 +11,7 @@ ip_add=$2
 u_name=$3
 file=$4
 
-if [ $# -lt 3 ];
+if [ $# -lt 4 ];
   then
     echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
 else
