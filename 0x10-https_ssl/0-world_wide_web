@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+#This bash script displays informations about subdomains
+
+if [ "$#" -eq 1 ]
+then
+  result=$(dig @8.8.8.8 www."$1" +noall +answer)
+  sd=$(echo "$result" | awk -F "." '{print $1}')
+  rec=$(echo "$result" | awk '{print $4}')
+  ip=$(echo "$result" | awk '{print $5}')
+  www=$"The subdomain $sd is a $rec record and points to $ip"
+
+  result=$(dig @8.8.8.8 lb-01."$1" +noall +answer)
+  sd=$(echo "$result" | awk -F "." '{print $1}')
+  rec=$(echo "$result" | awk '{print $4}')
+  ip=$(echo "$result" | awk '{print $5}')
+  lb_01="The subdomain $sd is a $rec record and points to $ip"
+
+  result=$(dig @8.8.8.8 web-01."$1" +noall +answer)
+  sd=$(echo "$result" | awk -F "." '{print $1}')
+  rec=$(echo "$result" | awk '{print $4}')
+  ip=$(echo "$result" | awk '{print $5}')
+  web_01="The subdomain $sd is a $rec record and points to $ip"
+
+  result=$(dig @8.8.8.8 web-02."$1" +noall +answer)
+  sd=$(echo "$result" | awk -F "." '{print $1}')
+  rec=$(echo "$result" | awk '{print $4}')
+  ip=$(echo "$result" | awk '{print $5}')
+  web_02="The subdomain $sd is a $rec record and points to $ip"
+  echo "$www"
+  echo "$lb_01"
+  echo "$web_01"
+  echo "$web_02"
+elif [ "$#" -eq 2 ]
+then
+  domain=$1
+  subdomain=$2
+  result=$(dig @8.8.8.8 "$subdomain"."$domain" +noall +answer)
+  sd=$(echo "$result" | awk -F "." '{print $1}')
+  rec=$(echo "$result" | awk '{print $4}')
+  ip=$(echo "$result" | awk '{print $5}')
+  ans="The subdomain $subdomain is a $rec record and points to $ip"
+  echo "$ans"
+fi
