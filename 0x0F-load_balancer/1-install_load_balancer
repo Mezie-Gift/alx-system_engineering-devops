@@ -18,16 +18,16 @@ apt-get -y install haproxy=2.7.\*
 
 echo "ENABLED=1" > /etc/default/haproxy
 
-loadBalancer="\
-frontend haproxy_balancer
+echo "
+    listen load_balancer
     bind *:80
     mode http
-    default_backend webservers
-
-backend webservers
     balance roundrobin
+    option httpclose
+    option forwardfor
     server 121905-web-01 54.210.10.180:80 check
     server 121905-web-02 54.237.42.211:80 check
-"
-echo "$loadBalancer" >> /etc/haproxy/haproxy.cfg
+" >> /etc/haproxy/haproxy.cfg
+
+#start HAProxy
 service haproxy start
