@@ -9,7 +9,7 @@ apt-get update
 apt-get -y upgrade
 
 #Enabling a dedicated HAProxy PPA
-apt-get -y install --no-install-recommends software-properties-common
+apt-get -y install software-properties-common
 add-apt-repository ppa:vbernat/haproxy-2.7
 apt-get update
 
@@ -29,4 +29,4 @@ backend webservers
     server 121905-web-02 54.237.42.211:80 check
 "
 echo "$loadBalancer" >> /etc/haproxy/haproxy.cfg
-service haproxy restart
+service haproxy start
