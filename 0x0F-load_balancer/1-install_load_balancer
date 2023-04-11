@@ -5,13 +5,12 @@
 #+    load balancer distributes requests using round robin#+    algorithm.
 #+    HAproxy can be managed via an init script.
 
-apt-get update
-apt-get -y upgrade
+apt-get -y update
 
 #Enabling a dedicated HAProxy PPA
 apt-get -y install software-properties-common
-add-apt-repository ppa:vbernat/haproxy-2.7
-apt-get update
+add-apt-repository -y ppa:vbernat/haproxy-2.7
+apt-get -y update
 
 #Install HAProxy
 apt-get -y install haproxy=2.7.\*
