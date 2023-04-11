@@ -16,6 +16,7 @@ apt-get update
 #Install HAProxy
 apt-get -y install haproxy=2.7.\*
 
+echo "ENABLED=1" > /etc/default/haproxy
 
 loadBalancer="\
 frontend haproxy_balancer
