@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+#This script configures nginx server so that `/redirect_me` is redirecting
+#+ to another page.
+#The redirection must be a '301 moved permanently'.
+
+#update packages
+apt-get update
+
+#install nginx
+apt-get -y install nginx
+
+#relax firewall on port 80
+sudo ufw allow 'Nginx HTTP'
+
+mkdir -p /var/www/html/
+sudo chmod -R 755 /var/www
+echo "Hello World" > /var/www/html/index.html
+
+#server configuration
+SERVER_CONFIG=\
+"server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	root /var/www/html;
+	index index.html index.xml index.nginx-debian.html;
+	server_name _;
+	location /redirect_me {
+		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+	}
+	location / {
+		try_files \$uri \$uri/ =404;
+	}
+}"
+
+bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
+
+#check if nginx is started, if not start nginx. else restart nginx.
+if [ "$(pgrep -c nginx)" -le 0 ];
+then
+  service nginx start
+else
+  service nginx restart
+fi
